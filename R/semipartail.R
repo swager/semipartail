@@ -36,6 +36,7 @@ gpd.scale <- function (x, t, gamma) {
 #'
 #' @param main.sample the sample of interest
 #' @param background.sample a (usually large) background sample used to stabilize tail inference
+#' @param threshold threshold defining the beginning of the tail (selected automatically if not specified)
 #'
 #' @return an estimated distribution, formatted as pairs
 #'         (X = sample location, weights = amount of probability mass at X),
