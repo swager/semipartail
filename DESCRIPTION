@@ -2,7 +2,7 @@ Package: semipartail
 Title: Semiparametric tail estimation
 Version: 1.0.0.0
 Authors@R: c(
-  person("William", "Fithian", , "wfithian@stanford.edu", role = c("aut", "cre"))
+  person("William", "Fithian", , "wfithian@stanford.edu", role = c("aut", "cre")),
   person("Stefan", "Wager", , "swager@stanford.edu", role = c("aut", "cre")))
 Description: What the package does (one paragraph)
 Depends: R
