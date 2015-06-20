@@ -12,7 +12,7 @@ hill(x, t)
 \item{t}{the threshold above which to compute the estimator}
 }
 \value{
-a tail index estimate
+A tail index estimate.
 }
 \description{
 Hill estimate of the tail index gamma as a function of threshold t

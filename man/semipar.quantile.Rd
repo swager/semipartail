@@ -4,19 +4,22 @@
 \alias{semipar.quantile}
 \title{Semiparametric estimate of quantiles of the main population}
 \usage{
-semipar.quantile(main.sample, background.sample, probs, threshold = NULL)
+semipar.quantile(main.sample, background.sample, quantiles, threshold = NULL)
 }
 \arguments{
 \item{main.sample}{the sample of interest}
 
-\item{background.sample}{a (usually large) background sample used to stabilize tail inference}
+\item{background.sample}{a (usually large) background sample
+used to stabilize tail inference}
 
-\item{probs}{numeric vector of probabilities with values in [0,1].}
+\item{quantiles}{numeric vector of probabilities with values in [0,1].}
 
-\item{threshold}{threshold defining the beginning of the tail (selected automatically if not specified)}
+\item{threshold}{threshold defining the beginning of the tail
+       (selected automatically if not specified)}
 }
 \value{
-plug-in estimates of the quantiles
+Plug-in estimates of the specified quantiles for the
+        main sample of interest.
 }
 \description{
 Semiparametric estimate of quantiles of the main population

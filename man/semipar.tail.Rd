@@ -16,9 +16,9 @@ used to stabilize tail inference}
        the tail (selected automatically if not specified)}
 }
 \value{
-an estimated distribution, formatted as pairs
+An estimated distribution, formatted as pairs
         (X = sample location, weights = amount of probability mass at X),
-        where the weights sum to 1
+        where the weights sum to 1.
 }
 \description{
 Semiparametric estimate of the main.sample

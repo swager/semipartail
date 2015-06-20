@@ -14,7 +14,7 @@ pareto.neg.loglik(log.sigma, tail.x, gamma)
 \item{gamma}{tail index of the GPD}
 }
 \value{
-the negative log-likelihood
+The negative log-likelihood.
 }
 \description{
 Evaluate GPD negative log-likelihood

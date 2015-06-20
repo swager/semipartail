@@ -7,7 +7,7 @@
 #' @param x the raw data
 #' @param t the threshold above which to compute the estimator
 #'
-#' @return a tail index estimate
+#' @return A tail index estimate.
 hill <- function(x, t) {
   if (t <= 0 || sum(x >= t) <= 2) {
     return(NaN)
@@ -24,7 +24,7 @@ hill <- function(x, t) {
 #' @param tail.x the tail data to be fit
 #' @param gamma tail index of the GPD
 #'
-#' @return the negative log-likelihood
+#' @return The negative log-likelihood.
 pareto.neg.loglik <- function(log.sigma, tail.x, gamma) {
     length(tail.x) * log.sigma +
         (1 + 1/gamma) * sapply(log.sigma,
@@ -38,7 +38,7 @@ pareto.neg.loglik <- function(log.sigma, tail.x, gamma) {
 #' @param t tail threshold above which GPD should be fit
 #' @param gamma pre-determined tail index of the GPD
 #'
-#' @return estimated scale parameter
+#' @return Estimated scale parameter.
 gpd.scale <- function (x, t, gamma) {
   exp(optimize(function(ls) pareto.neg.loglik(ls, x[x > t], gamma), 
     interval=c(-20,20))$minimum)
@@ -54,9 +54,11 @@ gpd.scale <- function (x, t, gamma) {
 #' @param threshold threshold defining the beginning of
 #'        the tail (selected automatically if not specified)
 #'
-#' @return an estimated distribution, formatted as pairs
+#' @return An estimated distribution, formatted as pairs
 #'         (X = sample location, weights = amount of probability mass at X),
-#'         where the weights sum to 1
+#'         where the weights sum to 1.
+#'
+#' @export semipar.tail
 semipar.tail <- function(main.sample,
                          background.sample,
                          threshold=NULL) {
