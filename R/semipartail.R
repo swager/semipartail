@@ -18,13 +18,27 @@ hill <- function(x, t) {
   return (gamma.hat)
 }
 
-#' TODO
-
-pareto.neg.loglik <- function(log.sigma, y, gma) {
-    length(y)*log.sigma +
-        (1+1/gma) * sapply(log.sigma, function(ls) sum(log(1+gma*y/exp(ls))))
+#' Evaluate GPD negative log-likelihood
+#'
+#' @param log.sigma log scale parameter
+#' @param tail.x the tail data to be fit
+#' @param gamma tail index of the GPD
+#'
+#' @return the negative log-likelihood
+pareto.neg.loglik <- function(log.sigma, tail.x, gamma) {
+    length(tail.x) * log.sigma +
+        (1 + 1/gamma) * sapply(log.sigma,
+        	function(ls) sum(log(1 + gamma * tail.x / exp(ls))))
 }
 
+#' Fit scale parameter of the generalized Pareto distribution (GPD)
+#' by maximum likelihood
+#'
+#' @param x the raw data
+#' @param t tail threshold above which GPD should be fit
+#' @param gamma pre-determined tail index of the GPD
+#'
+#' @return estimated scale parameter
 gpd.scale <- function (x, t, gamma) {
   exp(optimize(function(ls) pareto.neg.loglik(ls, x[x > t], gamma), 
     interval=c(-20,20))$minimum)
@@ -35,8 +49,10 @@ gpd.scale <- function (x, t, gamma) {
 #' Semiparametric estimate of the main.sample
 #'
 #' @param main.sample the sample of interest
-#' @param background.sample a (usually large) background sample used to stabilize tail inference
-#' @param threshold threshold defining the beginning of the tail (selected automatically if not specified)
+#' @param background.sample a (usually large) background sample
+#'        used to stabilize tail inference
+#' @param threshold threshold defining the beginning of
+#'        the tail (selected automatically if not specified)
 #'
 #' @return an estimated distribution, formatted as pairs
 #'         (X = sample location, weights = amount of probability mass at X),
@@ -47,7 +63,7 @@ semipar.tail <- function(main.sample,
               
     # If t is not passed in, use Guillou-Hall method to select threshold
     if(is.null(threshold)) {
-       stop("Not implemented")
+       stop("Automatic threshold selection not yet implemented")
     }
 
     # If no big observations, return mean

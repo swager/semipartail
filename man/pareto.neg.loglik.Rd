@@ -2,11 +2,21 @@
 % Please edit documentation in R/semipartail.R
 \name{pareto.neg.loglik}
 \alias{pareto.neg.loglik}
-\title{TODO}
+\title{Evaluate GPD negative log-likelihood}
 \usage{
-pareto.neg.loglik(log.sigma, y, gma)
+pareto.neg.loglik(log.sigma, tail.x, gamma)
+}
+\arguments{
+\item{log.sigma}{log scale parameter}
+
+\item{tail.x}{the tail data to be fit}
+
+\item{gamma}{tail index of the GPD}
+}
+\value{
+the negative log-likelihood
 }
 \description{
-TODO
+Evaluate GPD negative log-likelihood
 }
 

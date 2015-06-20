@@ -9,9 +9,11 @@ semipar.tail(main.sample, background.sample, threshold = NULL)
 \arguments{
 \item{main.sample}{the sample of interest}
 
-\item{background.sample}{a (usually large) background sample used to stabilize tail inference}
+\item{background.sample}{a (usually large) background sample
+used to stabilize tail inference}
 
-\item{threshold}{threshold defining the beginning of the tail (selected automatically if not specified)}
+\item{threshold}{threshold defining the beginning of
+       the tail (selected automatically if not specified)}
 }
 \value{
 an estimated distribution, formatted as pairs
